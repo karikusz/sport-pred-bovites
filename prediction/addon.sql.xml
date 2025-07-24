@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<queries>
+<query>  
+CREATE TABLE IF NOT EXISTS `#__bl_predleague` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `seasons` varchar(50) NOT NULL,
+  `predictions` varchar(255) NOT NULL,
+  `options` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+CREATE TABLE IF NOT EXISTS `#__bl_predround` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+  `rname` varchar(255) NOT NULL,
+  `ordering` tinyint(4) NOT NULL,
+  `league_id` int(11) NOT NULL,
+  `closedate` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+CREATE TABLE IF NOT EXISTS `#__bl_predround_matches` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+  `round_id` int(11) NOT NULL,
+  `match_id` int(11) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+CREATE TABLE IF NOT EXISTS `#__bl_predround_users` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `round_id` int(11) NOT NULL,
+  `prediction` text NOT NULL,
+  `editdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `filldate` timestamp NULL DEFAULT NULL,
+  `points` int(11) NOT NULL,
+  `place` tinyint(4) NOT NULL,
+  `filled` tinyint(4) NOT NULL DEFAULT '0',
+  `options` text NOT NULL,
+  `success` tinyint(4) NOT NULL DEFAULT '0',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+CREATE TABLE IF NOT EXISTS `#__bl_predtype` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `identif` varchar(100) NOT NULL,
+  `ptype` varchar(100) NOT NULL,
+  `ordering` tinyint(4) NOT NULL,
+  `showtype` varchar(1) NOT NULL DEFAULT '0',
+  `options` text NOT NULL,
+   PRIMARY KEY (`id`)  
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+    INSERT IGNORE INTO `#__bl_predtype` (`id`, `name`, `identif`, `ptype`, `ordering`, `showtype`, `options`) VALUES
+(1, 'JSPL_PREDICTION_TYPE_EXACT', 'ScoreExact', 'score', 0, '0', '');
+</query>
+<query>
+    INSERT IGNORE INTO `#__bl_predtype` (`id`, `name`, `identif`, `ptype`, `ordering`, `showtype`, `options`) VALUES
+(2, 'JSPL_PREDICTION_TYPE_SIDEANDDIFF', 'ScoreSideAndDiff', 'score', 1, '0', '');
+</query>
+<query>
+    INSERT IGNORE INTO `#__bl_predtype` (`id`, `name`, `identif`, `ptype`, `ordering`, `showtype`, `options`) VALUES
+(3, 'JSPL_PREDICTION_TYPE_WINNER', 'ScoreWinner', 'score', 2, '0', '');
+</query>
+<query>
+  CREATE TABLE IF NOT EXISTS #__bl_private_league (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `leagueName` varchar(255) NOT NULL,
+  `is_private` varchar(1) NOT NULL DEFAULT '0',
+  `creatorID` int(11) NOT NULL,
+  `options` text NOT NULL,
+  `invitekey` VARCHAR(100) NOT NULL DEFAULT '',
+  PRIMARY KEY  (`id`)
+  )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+  CREATE TABLE IF NOT EXISTS #__bl_private_based (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `leagueID` int(11) NOT NULL,
+  `privateID` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+  )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+<query>
+  CREATE TABLE IF NOT EXISTS #__bl_private_users (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `privateID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `confirmed` varchar(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY  (`id`)
+  )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+</query>
+</queries>

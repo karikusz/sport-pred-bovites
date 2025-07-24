@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="jsaddon" version="1.5.0">
+	<name>prediction</name>
+	<title>Predictions add-on</title>
+	<author>BearDev</author>
+	<creationDate>September 2021</creationDate>
+	<copyright>BearDev.(C) All rights reserved.</copyright>
+	<license>GNU General Public License version 2</license>
+	<authorEmail>sales@beardev.com</authorEmail>
+	<authorUrl>www.beardev.com</authorUrl>
+	<description><![CDATA[Allows creating predictions for selected season matches using <a href="index.php?option=com_joomsport&task=predleague_list">Prediction add-on</a>!
+            <br/> Add-on documentation is <a href="http://joomsport.com/pro-documentation.html#joomsport_add_ons_joomsport_prediction_add_on" target="_blank">available here.</a>
+            ]]></description>
+	<version>5.6</version>
+        <options>
+            <langugesBE>com_joomsport_prediction</langugesBE>
+            <langugesFE>com_joomsport_prediction</langugesFE>
+            
+            <menus>
+                <menugroup>JSPL_PREDICTION</menugroup>
+                <menugroupico>headpredict</menugroupico>
+                <menu>
+                    <task>predleague_list</task>
+                    <title>JSPL_PREDICTION_LIST</title>
+                    <menuico>p-list.png</menuico>
+                </menu>
+                <menu>
+                    <task>predround_list</task>
+                    <title>JSPL_PREDICTION_ROUND</title>
+                    <menuico>Rounds.png</menuico>
+                </menu>
+                <menu>
+                    <task>prediction_config</task>
+                    <title>JSPL_PREDICTION_CONFIG</title>
+                    <menuico>settings_icon2.gif</menuico>
+                    
+                </menu>
+            </menus>
+        </options>    
+</extension>
