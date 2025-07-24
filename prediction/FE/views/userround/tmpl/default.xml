@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Prediction Round">
+		<message>
+			<![CDATA[Prediction Round]]>
+		</message>
+	</layout>
+
+	<!-- 1.6 -->
+	<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_joomsport/fields">
+			<field name="id" type="prround" default="0" label="Round" description="Round" required="true" />
+		</fieldset>
+	</fields>
+</metadata>
